@@ -139,10 +139,10 @@ body:not(.light-mode) .price-search-inner {
 .price-search-row { display: flex; gap: 8px; align-items: center; width: 100%; }
 .price-search-input-wrap {
   flex: 1; min-width: 0; display: flex; align-items: center;
-  background: rgba(255,107,26,0.06); border: 1.5px solid rgba(255,107,26,0.18);
+  background: rgba(255,107,26,0.06); border: 2px solid rgba(255,107,26,0.55);
   border-radius: 10px; transition: border-color .18s; overflow: hidden;
 }
-.price-search-input-wrap:focus-within { border-color: var(--or); }
+.price-search-input-wrap:focus-within { border-color: var(--or); box-shadow: 0 0 0 3px rgba(255,107,26,0.15); }
 .price-search-icon { flex-shrink: 0; margin-left: 12px; color: rgba(255,107,26,0.5); pointer-events: none; }
 .price-search-input {
   flex: 1; min-width: 0; background: transparent; border: none;

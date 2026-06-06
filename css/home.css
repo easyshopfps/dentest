@@ -45,16 +45,28 @@
   display: flex; align-items: center; gap: 8px;
   color: #fff;
 }
-.cat-title svg { flex-shrink: 0; color: #fff; }
+.cat-title svg { flex-shrink: 0; color: #fff; stroke: var(--or); }
 .cat-title-main {
   font-size: .92rem; font-weight: 900; color: #fff; line-height: 1.15;
   font-family: 'Noto Sans Lao', sans-serif;
+  -webkit-text-stroke: 0.5px var(--or);
+  paint-order: stroke fill;
 }
 .cat-title-sub {
   font-size: .62rem; font-weight: 700; color: rgba(255,255,255,0.45);
   font-family: 'Rajdhani', 'Barlow', sans-serif;
   letter-spacing: .06em; text-transform: uppercase; line-height: 1;
 }
+
+/* title icon wrapper — orange border circle */
+.cat-title-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 2px solid var(--or);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255,107,26,0.1);
+}
+.cat-title-icon svg { color: #fff; stroke: #fff; }
 
 /* All IDs title row */
 .all-ids-title-row {
@@ -64,10 +76,12 @@
 .all-ids-title {
   display: flex; align-items: center; gap: 8px; color: #fff;
 }
-.all-ids-title svg { flex-shrink: 0; color: #fff; }
+.all-ids-title svg { flex-shrink: 0; color: #fff; stroke: var(--or); }
 .all-ids-title-main {
   font-size: .92rem; font-weight: 900; color: #fff; line-height: 1.15;
   font-family: 'Noto Sans Lao', sans-serif;
+  -webkit-text-stroke: 0.5px var(--or);
+  paint-order: stroke fill;
 }
 .all-ids-title-sub {
   font-size: .62rem; font-weight: 700; color: rgba(255,255,255,0.45);
@@ -232,7 +246,16 @@
   background: rgba(0,0,0,0.3); border-radius: 4px; padding: 2px 6px; backdrop-filter: blur(4px);
 }
 .card-body { padding: 10px 12px 12px; }
-.card-id   { font-weight: 700; font-size: .98rem; color: #1a1a1a; margin-bottom: 2px; }
+.card-id {
+  font-weight: 700; font-size: .92rem; color: #1a1a1a; margin-bottom: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.35;
+  min-height: 2.7em;
+  max-height: 2.7em;
+}
 .card-game { font-size: .68rem; color: #888; margin-bottom: 8px; display: flex; align-items: center; gap: 4px; }
 .card-price     { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--or); }
 .card-price-old { font-size: .68rem; color: #bbb; text-decoration: line-through; margin-left: 5px; }
