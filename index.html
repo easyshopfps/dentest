@@ -643,14 +643,15 @@ function openAllCategoriesPage() {
 
 function _renderAllCatsList() {
   const listWrap = document.getElementById('allCatsListWrap');
-  if (!window.allProducts || window.allProducts.length === 0) {
+  const src = window.allProducts || (typeof products !== 'undefined' ? products : null);
+  if (!src || src.length === 0) {
     listWrap.innerHTML = '<div class="loading-wrap"><div class="dot-loader"><span></span><span></span><span></span><span></span><span></span></div></div>';
     setTimeout(_renderAllCatsList, 350); return;
   }
   const cats = {};
-  window.allProducts.forEach(p => {
-    const c = p.category || 'ອື່ນໆ';
-    if (!cats[c]) cats[c] = { name: c, img: p.images?.[0] || '', items: [] };
+  src.forEach(p => {
+    const c = p.game || p.category || 'ອື່ນໆ';
+    if (!cats[c]) cats[c] = { name: c, img: (p.imgs||p.images||[])[0] || '', items: [] };
     cats[c].items.push(p);
   });
   listWrap.innerHTML = Object.values(cats).map(c => {
@@ -703,21 +704,28 @@ function closeAllIdsPage() {
 
 function _renderAllIdsGrid() {
   const grid = document.getElementById('allIdsGrid');
-  if (!window.allProducts || window.allProducts.length === 0) {
+  /* รอให้ products โหลด — ใช้ทั้ง window.allProducts และ products global */
+  const src = window.allProducts || (typeof products !== 'undefined' ? products : null);
+  if (!src || src.length === 0) {
     grid.innerHTML = '<div class="loading-wrap" style="padding:40px 0"><div class="dot-loader"><span></span><span></span><span></span><span></span><span></span></div></div>';
     setTimeout(_renderAllIdsGrid, 350); return;
   }
-  let data = [...window.allProducts];
+  let data = [...src];
   if (_allIdsPriceFilter) data = data.filter(p => p.price && p.price <= _allIdsPriceFilter);
-  if (_allIdsSort === 'newest')     data.sort((a,b) => new Date(b.created_at||0) - new Date(a.created_at||0));
-  else if (_allIdsSort === 'oldest')     data.sort((a,b) => new Date(a.created_at||0) - new Date(b.created_at||0));
+  if (_allIdsSort === 'newest')      data.sort((a,b) => new Date(b.created_at||b.date||0) - new Date(a.created_at||a.date||0));
+  else if (_allIdsSort === 'oldest') data.sort((a,b) => new Date(a.created_at||a.date||0) - new Date(b.created_at||b.date||0));
   else if (_allIdsSort === 'price_asc')  data.sort((a,b) => (a.price||0) - (b.price||0));
   else if (_allIdsSort === 'price_desc') data.sort((a,b) => (b.price||0) - (a.price||0));
   if (data.length === 0) {
     grid.innerHTML = '<p style="text-align:center;color:rgba(255,255,255,0.4);padding:40px 0;font-size:.85rem">ບໍ່ພົບລາຍການ</p>';
     return;
   }
-  grid.innerHTML = data.map(p => typeof buildCard === 'function' ? buildCard(p) : _fallbackCard(p)).join('');
+  /* ໃຊ້ cardHTML ຈາກ home.js (ໃຊ້ globalIdx) */
+  const allProds = src;
+  grid.innerHTML = data.map(p => {
+    const idx = allProds.indexOf(p);
+    return typeof cardHTML === 'function' ? cardHTML(p, idx) : _fallbackCard(p);
+  }).join('');
 }
 
 function _fallbackCard(p) {
