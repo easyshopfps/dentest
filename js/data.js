@@ -156,6 +156,21 @@ async function loadConfig() {
     if (!cfg || !cfg.length) return;
     const c = cfg[0];
 
+    /* ── background color + image ── */
+    if (c.bg_color || c.bg_image) {
+      const bg = c.bg_image
+        ? `url('${c.bg_image}') center/cover fixed`
+        : c.bg_color;
+      document.body.style.background = bg;
+      /* ถ้ามีรูป ใส่ overlay ด้วยเพื่อให้อ่านข้อความได้ */
+      if (c.bg_image) {
+        const ol = document.createElement('div');
+        ol.id = 'bgOverlay';
+        ol.style.cssText = 'position:fixed;inset:0;z-index:-1;background:rgba(13,27,53,0.82);pointer-events:none';
+        document.body.prepend(ol);
+      }
+    }
+
     if (c.theme === 'light') document.body.classList.add('light-mode');
 
     if (c.cat_layout === '2col') {
