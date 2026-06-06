@@ -24,8 +24,14 @@ async function init() {
       const row = document.getElementById('catRow');
       if (row) {
         row.innerHTML = cats.map(c => {
-          const count = products.filter(p => p.game === c.name).length;
-          const countLabel = `ມີ ID ${count} ອັນ`;
+          const gameProd = products.filter(p => p.game === c.name);
+          const count    = gameProd.length;
+          const prices   = gameProd.map(p => p.price);
+          const minP     = prices.length ? Math.min(...prices) : null;
+          const maxP     = prices.length ? Math.max(...prices) : null;
+          const priceStr = minP !== null
+            ? (minP === maxP ? fmt(minP) : `${fmt(minP)} - ${fmt(maxP)}`)
+            : '';
           const imgHtml = c.img_url
             ? `<img src="${c.img_url}" alt="${c.name}" loading="lazy" onerror="this.style.display='none'"/>`
             : `<div class="cat-img-fallback">${c.name}</div>`;
@@ -33,8 +39,11 @@ async function init() {
           <div class="cat-item" onclick="openCatPage('${c.name.replace(/'/g,"\\'")}')">
             <div class="cat-img">${imgHtml}</div>
             <div class="cat-info">
-              <span class="cat-info-name">${c.name}</span>
-              <span class="cat-info-count">${countLabel}</span>
+              <div class="cat-info-left">
+                <span class="cat-info-name">${c.name}</span>
+                <span class="cat-info-count">(ມີ ID ${count} ອັນ)</span>
+              </div>
+              ${priceStr ? `<span class="cat-info-price">${priceStr}</span>` : ''}
             </div>
           </div>`;
         }).join('');
