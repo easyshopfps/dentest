@@ -45,20 +45,20 @@
 /* Card หลัก — มีพื้นหลังสีเข้ม + กรอบ */
 .cat-item {
   cursor: pointer;
-  border-radius: 20px;
-  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  border: 1.5px solid rgba(255,255,255,0.1);
   background: #0f1a2e;
-  padding: 16px 16px 0;
+  padding: 10px 10px 0;
   transition: transform .2s, border-color .2s;
   box-shadow: 0 4px 24px rgba(0,0,0,0.5);
 }
 .cat-item:active { transform: scale(0.985); }
 .cat-item:hover  { border-color: rgba(255,107,26,0.5); }
 
-/* กล่องรูป — aspect-ratio แคบลงอีก */
+/* กล่องรูป — ยาวขึ้นนิด ratio 16/5 */
 .cat-img {
   width: 100%;
-  aspect-ratio: 16 / 4;
+  aspect-ratio: 16 / 5;
   border-radius: 10px;
   overflow: hidden;
   background: #0a1628;
@@ -66,7 +66,7 @@
 }
 .cat-img img {
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
+  object-fit: cover; object-position: center top;
   display: block;
   transition: transform .35s;
 }
@@ -76,22 +76,23 @@
 .cat-img-fallback {
   display: flex; align-items: center; justify-content: center;
   width: 100%; height: 100%;
-  font-size: .9rem; font-weight: 700; color: rgba(255,255,255,0.25);
+  font-size: .85rem; font-weight: 700; color: rgba(255,255,255,0.25);
 }
 
-/* info bar ด้านล่าง */
+/* info bar ด้านล่าง — ตัวเล็ก minimal */
 .cat-info {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 2px 14px;
+  padding: 9px 2px 11px;
 }
 .cat-info-name {
-  font-size: 1rem; font-weight: 900; color: #fff;
+  font-size: .88rem; font-weight: 800; color: #fff;
   line-height: 1.2;
 }
 .cat-info-count {
-  font-size: .8rem; font-weight: 700;
-  color: var(--orl);
+  font-size: .75rem; font-weight: 600;
+  color: #fff;
   white-space: nowrap; margin-left: 8px;
+  opacity: 0.7;
 }
 
 /* ── ALL IDS TITLE ── */
