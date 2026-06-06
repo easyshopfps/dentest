@@ -18,10 +18,10 @@
   <meta property="og:image"       content="https://img1.pic.in.th/images/7926.jpg"/>
   <meta property="og:url"         content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/"/>
 
-  <!-- Google Fonts: preconnect ก่อน = เร็วขึ้น -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;600;700;900&family=Rajdhani:wght@600;700&family=Oswald:wght@700&family=Barlow:wght@600;700;800&display=swap" rel="stylesheet"/>
 
   <!-- CSS — โหลดตามลำดับ: base → components → page-specific -->
   <link rel="stylesheet" href="css/base.css"/>
@@ -190,14 +190,22 @@
 
   <!-- Category buttons -->
   <div class="cat-section">
-    <div class="cat-title">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--orl)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="3" y="3" width="7" height="7" rx="1"/>
-        <rect x="14" y="3" width="7" height="7" rx="1"/>
-        <rect x="3" y="14" width="7" height="7" rx="1"/>
-        <rect x="14" y="14" width="7" height="7" rx="1"/>
-      </svg>
-      ໝວດໝູ່
+    <div class="cat-title-row">
+      <div class="cat-title">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <div>
+          <div class="cat-title-main">ໝວດໝູ່ສິນຄ້າທົ່ວໄປ</div>
+          <div class="cat-title-sub">Product Categories</div>
+        </div>
+      </div>
+      <button class="cat-view-all-btn" onclick="showAllCategories()">
+        ເບິ່ງທັງໝົດ
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
     <div class="cat-row" id="catRow">
       <div class="cat-item" onclick="openCatPage('Mobile Legends')">
@@ -215,14 +223,22 @@
 
   <!-- Product listing -->
   <div class="wrap" id="listing">
-    <div class="all-ids-title">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--orl)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="6" width="20" height="12" rx="6"/>
-        <path d="M6 12h4M8 10v4"/>
-        <circle cx="16" cy="11" r="1.2" fill="var(--orl)" stroke="none"/>
-        <circle cx="18" cy="13" r="1.2" fill="var(--orl)" stroke="none"/>
-      </svg>
-      ໄອດີເກມທັງໝົດ
+    <div class="all-ids-title-row">
+      <div class="all-ids-title">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <div>
+          <div class="all-ids-title-main">ໄອດີເກມທັງໝົດ</div>
+          <div class="all-ids-title-sub">All Game IDs</div>
+        </div>
+      </div>
+      <button class="cat-view-all-btn" onclick="window.scrollTo({top:document.getElementById('grid').offsetTop-20,behavior:'smooth'})">
+        ເບິ່ງທັງໝົດ
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
 
     <div class="sort-section">
@@ -529,6 +545,11 @@ function openContactPage() {
 }
 function openLink(url) {
   window.open(url, '_blank', 'noopener');
+}
+function showAllCategories() {
+  /* scroll to catRow section */
+  const row = document.getElementById('catRow');
+  if (row) row.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 function toggleWA() {
   const items   = document.getElementById('waItems');
