@@ -18,6 +18,8 @@ async function init() {
 
     /* 3. Products (โหลดก่อน render cat เพื่อนับจำนวน) */
     products = await loadProducts();
+    /* expose ให้ allcats/allids pages ใช้ได้ */
+    window.allProducts = products;
 
     /* 4. Render category row — นับจำนวน product ต่อหมวดได้เลย */
     if (cats && cats.length) {
