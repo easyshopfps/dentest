@@ -16,23 +16,30 @@ async function init() {
       loadCategories()
     ]);
 
-    /* 3. Render category row if DB has data */
+    /* 3. Products (โหลดก่อน render cat เพื่อนับจำนวน) */
+    products = await loadProducts();
+
+    /* 4. Render category row — นับจำนวน product ต่อหมวดได้เลย */
     if (cats && cats.length) {
       const row = document.getElementById('catRow');
       if (row) {
-        row.innerHTML = cats.map(c => `
+        row.innerHTML = cats.map(c => {
+          const count = products.filter(p => p.game === c.name).length;
+          const countLabel = `ມີ ID ${count} ອັນ`;
+          const imgHtml = c.img_url
+            ? `<img src="${c.img_url}" alt="${c.name}" loading="lazy" onerror="this.style.display='none'"/>`
+            : `<div class="cat-img-fallback">${c.name}</div>`;
+          return `
           <div class="cat-item" onclick="openCatPage('${c.name.replace(/'/g,"\\'")}')">
-            <div class="cat-img">
-              ${c.img_url
-                ? `<img src="${c.img_url}" alt="${c.name}" loading="lazy" width="600" height="200" onerror="this.style.display='none'"/>`
-                : `<span style="display:flex;align-items:center;justify-content:center;height:100%;font-size:.85rem;font-weight:700;color:rgba(255,255,255,0.5)">${c.name}</span>`}
+            <div class="cat-img">${imgHtml}</div>
+            <div class="cat-info">
+              <span class="cat-info-name">${c.name}</span>
+              <span class="cat-info-count">${countLabel}</span>
             </div>
-          </div>`).join('');
+          </div>`;
+        }).join('');
       }
     }
-
-    /* 4. Products */
-    products = await loadProducts();
 
     /* 5. Render grid */
     renderGrid(products);
@@ -57,4 +64,3 @@ async function init() {
 
 /* Boot when DOM is ready */
 document.addEventListener('DOMContentLoaded', init);
-
