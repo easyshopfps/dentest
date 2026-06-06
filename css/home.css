@@ -45,12 +45,17 @@
   display: flex; align-items: center; gap: 8px;
   color: #fff;
 }
-.cat-title svg { flex-shrink: 0; color: #fff; stroke: var(--or); }
+/* ไอคอนสีขาวล้วน ไม่มีวงกลม */
+.cat-title svg { flex-shrink: 0; color: #fff; stroke: #fff; }
+
 .cat-title-main {
-  font-size: .92rem; font-weight: 900; color: #fff; line-height: 1.15;
+  font-size: 1rem; font-weight: 900; line-height: 1.15;
   font-family: 'Noto Sans Lao', sans-serif;
-  -webkit-text-stroke: 0.5px var(--or);
+  /* สีส้มจริง + ขอบ stroke ชัดขึ้น */
+  color: var(--or);
+  -webkit-text-stroke: 1.5px var(--ord);
   paint-order: stroke fill;
+  text-shadow: 0 1px 8px rgba(232,79,0,0.25);
 }
 .cat-title-sub {
   font-size: .62rem; font-weight: 700; color: rgba(255,255,255,0.45);
@@ -58,13 +63,9 @@
   letter-spacing: .06em; text-transform: uppercase; line-height: 1;
 }
 
-/* title icon wrapper — orange border circle */
+/* ลบ .cat-title-icon วงกลม — ใช้ svg ตรงๆ */
 .cat-title-icon {
-  width: 32px; height: 32px; border-radius: 50%;
-  border: 2px solid var(--or);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  background: rgba(255,107,26,0.1);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .cat-title-icon svg { color: #fff; stroke: #fff; }
 
@@ -76,12 +77,15 @@
 .all-ids-title {
   display: flex; align-items: center; gap: 8px; color: #fff;
 }
-.all-ids-title svg { flex-shrink: 0; color: #fff; stroke: var(--or); }
+/* ไอคอนสีขาวล้วน */
+.all-ids-title svg { flex-shrink: 0; color: #fff; stroke: #fff; }
 .all-ids-title-main {
-  font-size: .92rem; font-weight: 900; color: #fff; line-height: 1.15;
+  font-size: 1rem; font-weight: 900; line-height: 1.15;
   font-family: 'Noto Sans Lao', sans-serif;
-  -webkit-text-stroke: 0.5px var(--or);
+  color: var(--or);
+  -webkit-text-stroke: 1.5px var(--ord);
   paint-order: stroke fill;
+  text-shadow: 0 1px 8px rgba(232,79,0,0.25);
 }
 .all-ids-title-sub {
   font-size: .62rem; font-weight: 700; color: rgba(255,255,255,0.45);
