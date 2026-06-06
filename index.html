@@ -192,17 +192,19 @@
   <div class="cat-section">
     <div class="cat-title-row">
       <div class="cat-title">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <path d="M16 10a4 4 0 01-8 0"/>
-        </svg>
+        <div class="cat-title-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
         <div>
           <div class="cat-title-main">ໝວດໝູ່ສິນຄ້າທົ່ວໄປ</div>
           <div class="cat-title-sub">Product Categories</div>
         </div>
       </div>
-      <button class="cat-view-all-btn" onclick="showAllCategories()">
+      <button class="cat-view-all-btn" onclick="openAllCategoriesPage()">
         ເບິ່ງທັງໝົດ
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
@@ -225,17 +227,19 @@
   <div class="wrap" id="listing">
     <div class="all-ids-title-row">
       <div class="all-ids-title">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <path d="M16 10a4 4 0 01-8 0"/>
-        </svg>
+        <div class="cat-title-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
         <div>
           <div class="all-ids-title-main">ໄອດີເກມທັງໝົດ</div>
           <div class="all-ids-title-sub">All Game IDs</div>
         </div>
       </div>
-      <button class="cat-view-all-btn" onclick="window.scrollTo({top:document.getElementById('grid').offsetTop-20,behavior:'smooth'})">
+      <button class="cat-view-all-btn" onclick="openAllIdsPage()">
         ເບິ່ງທັງໝົດ
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
@@ -546,10 +550,29 @@ function openContactPage() {
 function openLink(url) {
   window.open(url, '_blank', 'noopener');
 }
-function showAllCategories() {
-  /* scroll to catRow section */
-  const row = document.getElementById('catRow');
-  if (row) row.scrollIntoView({ behavior: 'smooth', block: 'start' });
+/* ປຸ່ມ "ເບິ່ງທັງໝົດ" ໝວດໝູ່ → ໄປຫນ້າ catPage ສະແດງທຸກ cat */
+function openAllCategoriesPage() {
+  const params = new URLSearchParams();
+  params.set('allcats', '1');
+  history.pushState({ page: 'allcats' }, '', '?' + params.toString());
+  _showAllCatsPage();
+}
+function _showAllCatsPage() {
+  const titleEl = document.getElementById('catPageTitle');
+  if (titleEl) titleEl.textContent = 'ໝວດໝູ່ທັງໝົດ · All Categories';
+  document.getElementById('homePage').style.visibility = 'hidden';
+  document.getElementById('catPage').classList.add('show');
+  /* โหลด catGrid ด้วยทุกสินค้า grouped by cat */
+  if (typeof renderCatPageAllCats === 'function') renderCatPageAllCats();
+  window.scrollTo(0, 0);
+}
+/* ປຸ່ມ "ເບິ່ງທັງໝົດ" ID ເກມ → scroll ລົງໄປ grid */
+function openAllIdsPage() {
+  const grid = document.getElementById('grid');
+  if (grid) {
+    const top = grid.getBoundingClientRect().top + window.scrollY - 70;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
 }
 function toggleWA() {
   const items   = document.getElementById('waItems');
