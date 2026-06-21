@@ -19,7 +19,7 @@ function cardHTML(p, globalIdx) {
           ? `<img src="${imgSrc}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'"/>`
           : GAMESVG}
         <div class="stag ${p.status}">${isSold ? 'ປິດແລ້ວ' : '✓ ພ້ອມເສີບ'}</div>
-        ${p.isNew ? `<div class="badge-new">NEW</div>` : ''}
+        ${p.isNew ? `<img class="badge-new" src="https://img1.pic.in.th/images/32882.png" alt="ສິນຄ້າໃໝ່"/>` : ''}
         <div class="card-stats">
           ${hero ? `<div class="cs">👤 ${hero.v}</div>` : ''}
           ${skin ? `<div class="cs">✨ ${skin.v}</div>` : ''}

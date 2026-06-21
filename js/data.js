@@ -7,6 +7,7 @@ const CACHE_KEY    = 'shop_products_v1';
 const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 function _parseProducts(data) {
+  const NEW_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 ຊົ່ວໂມງ
   return data.map(row => ({
     id:         row.id,
     title:      row.title,
@@ -15,7 +16,7 @@ function _parseProducts(data) {
     oldPrice:   row.old_price,
     status:     row.status,
     date:       row.date,
-    isNew:      row.is_new,
+    isNew:      row.created_at ? (Date.now() - new Date(row.created_at).getTime() < NEW_WINDOW_MS) : false,
     imgs:       row.imgs || [],
     desc:       row.description || '',
     extras:     Array.isArray(row.extras) ? row.extras : [],
