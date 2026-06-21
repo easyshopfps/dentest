@@ -114,9 +114,9 @@
 .stag.avail { background: rgba(22,163,74,0.85); color: #fff; }
 .stag.sold  { background: rgba(192,57,43,0.85);  color: #fff; }
 .badge-new {
-  position: absolute; top: 8px; left: 8px;
-  background: var(--or); color: #fff;
-  font-size: .6rem; font-weight: 800; padding: 3px 8px; border-radius: 6px; letter-spacing: .04em;
+  position: absolute; top: 8px; left: 8px; z-index: 3;
+  width: 72px; height: auto;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
 }
 .card-stats {
   position: absolute; bottom: 0; left: 0; right: 0;
