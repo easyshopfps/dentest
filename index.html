@@ -18,10 +18,10 @@
   <meta property="og:image"       content="https://img1.pic.in.th/images/7926.jpg"/>
   <meta property="og:url"         content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO/"/>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: preconnect ก่อน = เร็วขึ้น -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;600;700;900&family=Rajdhani:wght@600;700&family=Oswald:wght@700&family=Barlow:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet"/>
 
   <!-- CSS — โหลดตามลำดับ: base → components → page-specific -->
   <link rel="stylesheet" href="css/base.css"/>
@@ -190,24 +190,14 @@
 
   <!-- Category buttons -->
   <div class="cat-section">
-    <div class="cat-title-row">
-      <div class="cat-title">
-        <div class="cat-title-icon">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-        </div>
-        <div>
-          <div class="cat-title-main">ໝວດໝູ່ສິນຄ້າທົ່ວໄປ</div>
-          <div class="cat-title-sub">Product Categories</div>
-        </div>
-      </div>
-      <button class="cat-view-all-btn" onclick="openAllCategoriesPage()">
-        ເບິ່ງທັງໝົດ
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
+    <div class="cat-title">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--orl)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1"/>
+        <rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/>
+        <rect x="14" y="14" width="7" height="7" rx="1"/>
+      </svg>
+      ໝວດໝູ່
     </div>
     <div class="cat-row" id="catRow">
       <div class="cat-item" onclick="openCatPage('Mobile Legends')">
@@ -225,24 +215,14 @@
 
   <!-- Product listing -->
   <div class="wrap" id="listing">
-    <div class="all-ids-title-row">
-      <div class="all-ids-title">
-        <div class="cat-title-icon">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
-          </svg>
-        </div>
-        <div>
-          <div class="all-ids-title-main">ໄອດີເກມທັງໝົດ</div>
-          <div class="all-ids-title-sub">All Game IDs</div>
-        </div>
-      </div>
-      <button class="cat-view-all-btn" onclick="openAllIdsPage()">
-        ເບິ່ງທັງໝົດ
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
+    <div class="all-ids-title">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--orl)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="6" width="20" height="12" rx="6"/>
+        <path d="M6 12h4M8 10v4"/>
+        <circle cx="16" cy="11" r="1.2" fill="var(--orl)" stroke="none"/>
+        <circle cx="18" cy="13" r="1.2" fill="var(--orl)" stroke="none"/>
+      </svg>
+      ໄອດີເກມທັງໝົດ
     </div>
 
     <div class="sort-section">
@@ -316,11 +296,7 @@
                 font-size:.7rem;margin-left:3px">KHOUD</a>
     </p>
     <a href="https://www.facebook.com/share/1NFP7JUq68/" target="_blank" rel="noopener"
-       style="display:inline-flex;align-items:center;gap:6px;font-size:.68rem;color:var(--muted);opacity:.55;text-decoration:underline;text-underline-offset:3px">
-      <svg style="animation:spinGear 3s linear infinite;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
-      </svg>
+       style="font-size:.68rem;color:var(--muted);opacity:.45;text-decoration:underline;text-underline-offset:3px">
       ຢາກສ້າງເວັບໄຊທ໌? ກົດບ່ອນນີ້ເລີຍ!
     </a>
   </footer>
@@ -398,87 +374,7 @@
     <span id="catPageTitle">ໝວດໝູ່</span>
   </div>
   <div class="wrap" style="padding-top:16px;padding-bottom:60px">
-
-    <!-- ── ສ່ວນ "ເບິ່ງໝວດໝູ່ທັງໝົດ" (allcats mode) — ສະແດງ list cat ເທົ່ານັ້ນ ── -->
-    <div id="allCatsListSection" style="display:none">
-      <div id="allCatsListWrap" style="display:flex;flex-direction:column;gap:10px"></div>
-    </div>
-
-    <!-- ── ສ່ວນ normal cat (ເຂົ້າ cat ດຽວ) ── -->
-    <div id="normalCatSection">
-      <!-- Cat price search -->
-      <div class="price-search-wrap">
-        <div class="price-search-inner">
-          <div class="price-search-row">
-            <div class="price-search-input-wrap">
-              <svg class="price-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              </svg>
-              <input type="text" inputmode="numeric" id="catPriceSearchInput" class="price-search-input"
-                     placeholder="ຊອກຫາໄອດີງົບທີ່ທ່ານຕ້ອງການ"
-                     oninput="onCatPriceInput(this)"
-                     onkeydown="if(event.key==='Enter') doCatPriceSearch()"/>
-              <button class="price-search-clear" id="catPriceSearchClear" onclick="clearCatPriceSearch()" aria-label="ລ້າງ">✕</button>
-            </div>
-            <button class="price-search-btn" onclick="doCatPriceSearch()">ຊອກຫາ</button>
-          </div>
-        </div>
-      </div>
-      <!-- Cat sort -->
-      <div class="cat-sort-section">
-        <div class="sort-card">
-          <div class="sort-label">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-            </svg>
-            ຈັດຮຽງ:
-          </div>
-          <div class="sort-chips cat-sort-chips">
-            <div class="sc cat-sc active" onclick="catSortBy(this,'newest')">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              ໄອດີລ່າສຸດ
-            </div>
-            <div class="sc cat-sc" onclick="catSortBy(this,'oldest')">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg>
-              ໄອດີເກົ່າສຸດ
-            </div>
-            <div class="sc cat-sc" onclick="catSortBy(this,'price_asc')">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-              ໄອດີທຳມະດາ
-            </div>
-            <div class="sc cat-sc" onclick="catSortBy(this,'price_desc')">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-              ໄອດີລະດັບທ໊ອບ
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Cat product grid (filled by category.js) -->
-      <div id="catGridWrap">
-        <div class="loading-wrap" id="catLoader">
-          <div class="dot-loader">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-        </div>
-        <div class="grid" id="catGrid"></div>
-      </div>
-    </div><!-- end normalCatSection -->
-
-  </div>
-</div><!-- end #catPage -->
-
-<!-- ══════════════════════════════════
-     ALL IDs PAGE (ไอดีทั้งหมด standalone)
-════════════════════════════════════ -->
-<div id="allIdsPage" style="display:none">
-  <div class="cat-page-back" onclick="closeAllIdsPage()">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polyline points="15 18 9 12 15 6"/>
-    </svg>
-    <span>ໄອດີເກມທັງໝົດ · All Game IDs</span>
-  </div>
-  <div class="wrap" style="padding-top:16px;padding-bottom:60px">
-    <!-- Price search -->
+    <!-- Cat price search -->
     <div class="price-search-wrap">
       <div class="price-search-inner">
         <div class="price-search-row">
@@ -486,45 +382,56 @@
             <svg class="price-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
-            <input type="text" inputmode="numeric" id="allIdsPriceInput" class="price-search-input"
+            <input type="text" inputmode="numeric" id="catPriceSearchInput" class="price-search-input"
                    placeholder="ຊອກຫາໄອດີງົບທີ່ທ່ານຕ້ອງການ"
-                   oninput="onAllIdsPriceInput(this)"
-                   onkeydown="if(event.key==='Enter') doAllIdsPriceSearch()"/>
-            <button class="price-search-clear" id="allIdsPriceClear" onclick="clearAllIdsPriceSearch()" aria-label="ລ້າງ">✕</button>
+                   oninput="onCatPriceInput(this)"
+                   onkeydown="if(event.key==='Enter') doCatPriceSearch()"/>
+            <button class="price-search-clear" id="catPriceSearchClear" onclick="clearCatPriceSearch()" aria-label="ລ້າງ">✕</button>
           </div>
-          <button class="price-search-btn" onclick="doAllIdsPriceSearch()">ຊອກຫາ</button>
+          <button class="price-search-btn" onclick="doCatPriceSearch()">ຊອກຫາ</button>
         </div>
       </div>
     </div>
-    <!-- Sort -->
-    <div class="sort-card" style="margin-bottom:16px">
-      <div class="sort-label">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-        ຈັດຮຽງ:
-      </div>
-      <div class="sort-chips">
-        <div class="sc allids-sc active" onclick="allIdsSortBy(this,'newest')">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          ໄອດີລ່າສຸດ
+    <!-- Cat sort -->
+    <div class="cat-sort-section">
+      <div class="sort-card">
+        <div class="sort-label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+          </svg>
+          ຈັດຮຽງ:
         </div>
-        <div class="sc allids-sc" onclick="allIdsSortBy(this,'oldest')">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg>
-          ໄອດີເກົ່າສຸດ
-        </div>
-        <div class="sc allids-sc" onclick="allIdsSortBy(this,'price_asc')">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-          ໄອດີທຳມະດາ
-        </div>
-        <div class="sc allids-sc" onclick="allIdsSortBy(this,'price_desc')">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-          ໄອດີລະດັບທ໊ອບ
+        <div class="sort-chips cat-sort-chips">
+          <div class="sc cat-sc active" onclick="catSortBy(this,'newest')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ໄອດີລ່າສຸດ
+          </div>
+          <div class="sc cat-sc" onclick="catSortBy(this,'oldest')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/></svg>
+            ໄອດີເກົ່າສຸດ
+          </div>
+          <div class="sc cat-sc" onclick="catSortBy(this,'price_asc')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            ໄອດີທຳມະດາ
+          </div>
+          <div class="sc cat-sc" onclick="catSortBy(this,'price_desc')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            ໄອດີລະດັບທ໊ອບ
+          </div>
         </div>
       </div>
     </div>
-    <!-- Grid -->
-    <div class="grid" id="allIdsGrid"></div>
+    <!-- Cat product grid (filled by category.js) -->
+    <div id="catGridWrap">
+      <div class="loading-wrap" id="catLoader">
+        <div class="dot-loader">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="grid" id="catGrid"></div>
+    </div>
   </div>
-</div><!-- end #allIdsPage -->
+</div><!-- end #catPage -->
 
 <!-- ══════════════════════════════════
      DUPLICATE WARNING OVERLAY
@@ -623,154 +530,6 @@ function openContactPage() {
 function openLink(url) {
   window.open(url, '_blank', 'noopener');
 }
-
-/* ═══════════════════════════════════════════════
-   ປຸ່ມ "ເບິ່ງທັງໝົດ" ໝວດໝູ່ → ໜ້າ allcats
-   ສະແດງ list ໝວດໝູ່ (ບໍ່ມີ sort/search)
-   ກົດ cat → ໄປໜ້ານັ້ນປົກກະຕິ
-═══════════════════════════════════════════════ */
-function openAllCategoriesPage() {
-  document.getElementById('homePage').style.visibility = 'hidden';
-  document.getElementById('allIdsPage').style.display  = 'none';
-  document.getElementById('catPageTitle').textContent  = 'ໝວດໝູ່ທັງໝົດ · All Categories';
-  document.getElementById('allCatsListSection').style.display = 'block';
-  document.getElementById('normalCatSection').style.display   = 'none';
-  document.getElementById('catPage').classList.add('show');
-  window.scrollTo(0, 0);
-  history.pushState({ page: 'allcats' }, '', '?allcats=1');
-  _renderAllCatsList();
-}
-
-function _renderAllCatsList() {
-  const listWrap = document.getElementById('allCatsListWrap');
-  const src = window.allProducts || (typeof products !== 'undefined' ? products : null);
-  if (!src || src.length === 0) {
-    listWrap.innerHTML = '<div class="loading-wrap"><div class="dot-loader"><span></span><span></span><span></span><span></span><span></span></div></div>';
-    setTimeout(_renderAllCatsList, 350); return;
-  }
-  const cats = {};
-  src.forEach(p => {
-    const c = p.game || p.category || 'ອື່ນໆ';
-    if (!cats[c]) cats[c] = { name: c, img: (p.imgs||p.images||[])[0] || '', items: [] };
-    cats[c].items.push(p);
-  });
-  listWrap.innerHTML = Object.values(cats).map(c => {
-    const prices = c.items.map(i => i.price).filter(Boolean);
-    const mn = prices.length ? Math.min(...prices).toLocaleString() : '-';
-    const mx = prices.length ? Math.max(...prices).toLocaleString() : '-';
-    return `<div class="cat-item" onclick="openCatFromAllCats('${encodeURIComponent(c.name)}')"
-              style="display:flex;align-items:center;gap:12px;padding:12px 14px">
-      ${c.img ? `<img src="${c.img}" alt="" style="width:72px;height:52px;object-fit:cover;border-radius:8px;flex-shrink:0"/>` : ''}
-      <div style="flex:1;min-width:0">
-        <div style="font-weight:800;font-size:.9rem;color:#fff;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${c.name}</div>
-        <div style="font-size:.72rem;color:rgba(255,255,255,0.5);margin-bottom:2px">${c.items.length} ລາຍການ</div>
-        <div style="font-size:.72rem;color:var(--orl);font-weight:700">${mn} – ${mx}</div>
-      </div>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </div>`;
-  }).join('');
-}
-
-function openCatFromAllCats(encodedName) {
-  const name = decodeURIComponent(encodedName);
-  document.getElementById('allCatsListSection').style.display = 'none';
-  document.getElementById('normalCatSection').style.display   = 'block';
-  document.getElementById('catPageTitle').textContent = name;
-  if (typeof loadCategoryProducts === 'function') loadCategoryProducts(name);
-  window.scrollTo(0, 0);
-}
-
-/* ═══════════════════════════════════════════════
-   ປຸ່ມ "ເບິ່ງທັງໝົດ" ໄອດີ → ໜ້າ allIds standalone
-   ມີ sort + price search ເທົ່ານັ້ນ
-═══════════════════════════════════════════════ */
-let _allIdsSort        = 'newest';
-let _allIdsPriceFilter = null;
-
-function openAllIdsPage() {
-  document.getElementById('homePage').style.visibility = 'hidden';
-  document.getElementById('catPage').classList.remove('show');
-  document.getElementById('allIdsPage').style.display  = 'block';
-  window.scrollTo(0, 0);
-  history.pushState({ page: 'allids' }, '', '?allids=1');
-  _renderAllIdsGrid();
-}
-
-function closeAllIdsPage() {
-  document.getElementById('allIdsPage').style.display  = 'none';
-  document.getElementById('homePage').style.visibility = 'visible';
-  history.pushState({}, '', location.pathname);
-}
-
-function _renderAllIdsGrid() {
-  const grid = document.getElementById('allIdsGrid');
-  /* รอให้ products โหลด — ใช้ทั้ง window.allProducts และ products global */
-  const src = window.allProducts || (typeof products !== 'undefined' ? products : null);
-  if (!src || src.length === 0) {
-    grid.innerHTML = '<div class="loading-wrap" style="padding:40px 0"><div class="dot-loader"><span></span><span></span><span></span><span></span><span></span></div></div>';
-    setTimeout(_renderAllIdsGrid, 350); return;
-  }
-  let data = [...src];
-  if (_allIdsPriceFilter) data = data.filter(p => p.price && p.price <= _allIdsPriceFilter);
-  if (_allIdsSort === 'newest')      data.sort((a,b) => new Date(b.created_at||b.date||0) - new Date(a.created_at||a.date||0));
-  else if (_allIdsSort === 'oldest') data.sort((a,b) => new Date(a.created_at||a.date||0) - new Date(b.created_at||b.date||0));
-  else if (_allIdsSort === 'price_asc')  data.sort((a,b) => (a.price||0) - (b.price||0));
-  else if (_allIdsSort === 'price_desc') data.sort((a,b) => (b.price||0) - (a.price||0));
-  if (data.length === 0) {
-    grid.innerHTML = '<p style="text-align:center;color:rgba(255,255,255,0.4);padding:40px 0;font-size:.85rem">ບໍ່ພົບລາຍການ</p>';
-    return;
-  }
-  /* ໃຊ້ cardHTML ຈາກ home.js (ໃຊ້ globalIdx) */
-  const allProds = src;
-  grid.innerHTML = data.map(p => {
-    const idx = allProds.indexOf(p);
-    return typeof cardHTML === 'function' ? cardHTML(p, idx) : _fallbackCard(p);
-  }).join('');
-}
-
-function _fallbackCard(p) {
-  const img   = p.images?.[0] || '';
-  const price = p.price ? p.price.toLocaleString() : '-';
-  const avail = p.status === 'available';
-  return `<div class="card" onclick="openDetail('${p.id}')">
-    <div class="card-img-wrap">${img ? `<img src="${img}" class="card-img" loading="lazy"/>` : ''}</div>
-    <div class="card-body">
-      <div class="card-id">${p.title || p.id}</div>
-      <div class="card-cat">${p.category || ''}</div>
-      <div class="card-price">${price} <span class="card-currency">ກີບ</span>${avail ? ' ✅' : ''}</div>
-      <button class="card-btn">ເບິ່ງລາຍລະອຽດ ›</button>
-    </div></div>`;
-}
-
-function allIdsSortBy(el, mode) {
-  _allIdsSort = mode;
-  document.querySelectorAll('.allids-sc').forEach(e => e.classList.remove('active'));
-  el.classList.add('active');
-  _renderAllIdsGrid();
-}
-function onAllIdsPriceInput(el) {
-  document.getElementById('allIdsPriceClear').style.display = el.value ? 'flex' : 'none';
-}
-function doAllIdsPriceSearch() {
-  const v = parseInt(document.getElementById('allIdsPriceInput').value.replace(/\D/g,''));
-  _allIdsPriceFilter = isNaN(v) ? null : v;
-  _renderAllIdsGrid();
-}
-function clearAllIdsPriceSearch() {
-  document.getElementById('allIdsPriceInput').value = '';
-  document.getElementById('allIdsPriceClear').style.display = 'none';
-  _allIdsPriceFilter = null;
-  _renderAllIdsGrid();
-}
-
-/* ── handle browser back button ── */
-window.addEventListener('popstate', e => {
-  const s = e.state;
-  document.getElementById('allIdsPage').style.display  = 'none';
-  document.getElementById('catPage').classList.remove('show');
-  document.getElementById('homePage').style.visibility = 'visible';
-});
-
 function toggleWA() {
   const items   = document.getElementById('waItems');
   const chevron = document.getElementById('waChevron');
