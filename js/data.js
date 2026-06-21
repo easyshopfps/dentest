@@ -11,14 +11,12 @@ function _parseProducts(data) {
     id:         row.id,
     title:      row.title,
     game:       row.game,
-    category:   row.game,          // alias สำหรับ allcats
     price:      row.price,
     oldPrice:   row.old_price,
     status:     row.status,
     date:       row.date,
     isNew:      row.is_new,
     imgs:       row.imgs || [],
-    images:     row.imgs || [],    // alias สำหรับ allids fallbackCard
     desc:       row.description || '',
     extras:     Array.isArray(row.extras) ? row.extras : [],
     created_at: row.created_at || ''
@@ -158,35 +156,6 @@ async function loadConfig() {
     if (!cfg || !cfg.length) return;
     const c = cfg[0];
 
-    /* ── background color + image ── ครอบทุกหน้า ── */
-    if (c.bg_color || c.bg_image) {
-      if (c.bg_image) {
-        const stBg = document.createElement('style');
-        stBg.textContent = `
-          body { background: url('${c.bg_image}') center/cover fixed !important; }
-          #homePage, #catPage, #allIdsPage, #detailPage {
-            background: transparent !important;
-          }
-        `;
-        document.head.appendChild(stBg);
-        /* overlay */
-        const ol = document.createElement('div');
-        ol.id = 'bgOverlay';
-        ol.style.cssText = 'position:fixed;inset:0;z-index:-1;background:rgba(13,27,53,0.82);pointer-events:none';
-        document.body.prepend(ol);
-      } else if (c.bg_color) {
-        const stBg = document.createElement('style');
-        stBg.textContent = `
-          body { background: ${c.bg_color} !important; }
-          #homePage, #catPage, #allIdsPage, #detailPage {
-            background: ${c.bg_color} !important;
-            --bg: ${c.bg_color};
-          }
-        `;
-        document.head.appendChild(stBg);
-      }
-    }
-
     if (c.theme === 'light') document.body.classList.add('light-mode');
 
     if (c.cat_layout === '2col') {
@@ -211,30 +180,6 @@ async function loadConfig() {
       document.head.appendChild(st2);
     }
 
-    /* ── border / accent color — เปลี่ยนแค่ขอบด้านนอก ── */
-    if (c.border_color) {
-      const bc = c.border_color;
-      const st3 = document.createElement('style');
-      st3.textContent = `
-        .announce-bar    { border-color: ${bc} !important; }
-        .ann-tag         { border: 2px solid ${bc} !important; background: transparent !important; color: ${bc} !important; }
-        .cat-item        { border-color: ${bc}66 !important; }
-        .cat-item:hover  { border-color: ${bc} !important; }
-        .sort-card       { border-color: ${bc}66 !important; }
-        .sc              { border-color: ${bc}55 !important; }
-        .sc.active       { border-color: ${bc} !important; }
-        .sc:hover        { border-color: ${bc}99 !important; }
-        .price-search-input-wrap              { border-color: ${bc}66 !important; }
-        .price-search-input-wrap:focus-within { border-color: ${bc} !important; }
-        .card            { border-color: ${bc}44 !important; }
-        .card:hover      { border-color: ${bc}aa !important; }
-        .card-btn        { border-color: ${bc}55 !important; }
-        .card:hover .card-btn { border-color: ${bc} !important; }
-        .cat-page-back   { border-bottom-color: ${bc}33 !important; }
-      `;
-      document.head.appendChild(st3);
-    }
-
     if (c.detail_theme) applyDetailTheme(c.detail_theme);
 
     if (c.font) {
@@ -242,9 +187,7 @@ async function loadConfig() {
         noto_sans:  "'Noto Sans Lao', sans-serif",
         noto_serif: "'Noto Serif Lao', serif",
         phetsarath: "'Phetsarath OT', 'Noto Sans Lao', sans-serif",
-        souliyo:    "'Souliyo Unicode', 'Noto Sans Lao', sans-serif",
-        rajdhani:   "'Noto Sans Lao', 'Rajdhani', sans-serif",
-        barlow:     "'Noto Sans Lao', 'Barlow', sans-serif"
+        souliyo:    "'Souliyo Unicode', 'Noto Sans Lao', sans-serif"
       };
       const fv = fontMap[c.font];
       if (fv) {

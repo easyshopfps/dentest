@@ -16,41 +16,23 @@ async function init() {
       loadCategories()
     ]);
 
-    /* 3. Products (โหลดก่อน render cat เพื่อนับจำนวน) */
-    products = await loadProducts();
-    /* expose ให้ allcats/allids pages ใช้ได้ */
-    window.allProducts = products;
-
-    /* 4. Render category row — นับจำนวน product ต่อหมวดได้เลย */
+    /* 3. Render category row if DB has data */
     if (cats && cats.length) {
       const row = document.getElementById('catRow');
       if (row) {
-        row.innerHTML = cats.map(c => {
-          const gameProd = products.filter(p => p.game === c.name);
-          const count    = gameProd.length;
-          const prices   = gameProd.map(p => p.price);
-          const minP     = prices.length ? Math.min(...prices) : null;
-          const maxP     = prices.length ? Math.max(...prices) : null;
-          const priceStr = minP !== null
-            ? (minP === maxP ? fmt(minP) : `${fmt(minP)} - ${fmt(maxP)}`)
-            : '';
-          const imgHtml = c.img_url
-            ? `<img src="${c.img_url}" alt="${c.name}" loading="lazy" onerror="this.style.display='none'"/>`
-            : `<div class="cat-img-fallback">${c.name}</div>`;
-          return `
+        row.innerHTML = cats.map(c => `
           <div class="cat-item" onclick="openCatPage('${c.name.replace(/'/g,"\\'")}')">
-            <div class="cat-img">${imgHtml}</div>
-            <div class="cat-info">
-              <div class="cat-info-left">
-                <span class="cat-info-name">${c.name}</span>
-                <span class="cat-info-count">(ມີ ID ${count} ອັນ)</span>
-              </div>
-              ${priceStr ? `<span class="cat-info-price">${priceStr}</span>` : ''}
+            <div class="cat-img">
+              ${c.img_url
+                ? `<img src="${c.img_url}" alt="${c.name}" loading="lazy" width="600" height="200" onerror="this.style.display='none'"/>`
+                : `<span style="display:flex;align-items:center;justify-content:center;height:100%;font-size:.85rem;font-weight:700;color:rgba(255,255,255,0.5)">${c.name}</span>`}
             </div>
-          </div>`;
-        }).join('');
+          </div>`).join('');
       }
     }
+
+    /* 4. Products */
+    products = await loadProducts();
 
     /* 5. Render grid */
     renderGrid(products);
@@ -75,3 +57,4 @@ async function init() {
 
 /* Boot when DOM is ready */
 document.addEventListener('DOMContentLoaded', init);
+
